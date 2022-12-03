@@ -15,7 +15,9 @@ int IsWhite(int x, int y, Board *b);
 int IsBlack(int x, int y, Board *b);
 int IsEmpty(int x, int y, Board *b);
 int InBoard(int x, int y);
-Coordinate* Movimiento(Board *b, Coordinate *current, Piece *p);
+Coordinate* ValidateMovement(Board *b, Coordinate *current, Piece *p);
+int InCheckWHITE(Board *b, Coordinate *wkingcoordinate);
+int InCheckBLACK(Board *b, Coordinate *bkingcoordinate);
 
 
 #endif //MAIN_C_VALIDATIONPIECES_H

@@ -19,7 +19,7 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
     endif()
 endif()
 
-add_executable(${PROJECT_NAME} main.c Globals.h Validationpieces.c Validationpieces.h Board.c Board.h Graphics.c Graphics.h Globals.h)
+add_executable(${PROJECT_NAME} main.c Globals.h Validationpieces.c Validationpieces.h Board.c Board.h Graphics.c Graphics.h Globals.h Mouse.c Mouse.h)
 target_link_libraries(${PROJECT_NAME} raylib)
 
 if (APPLE)

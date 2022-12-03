@@ -5,5 +5,6 @@ int main(void)
 {
     SetTargetFPS(30);
     MainWindow();
+
   return 0;
 }
