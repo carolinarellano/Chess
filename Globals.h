@@ -37,7 +37,8 @@ typedef struct coordinate_struct {
 
 typedef struct piece_struct {
     Picture piece;
-    Coordinate *position; //last movement made
+    Coordinate *position; //position in the matrix
+    Coordinate *graph_pos; //position in pixels
     int ID;
     int isSelected; //is selected 1, if is not 0 -> Collision w mouse function
     int (*inGame)(void* x, void* y); //is in the board 1, if is not 0

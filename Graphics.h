@@ -10,12 +10,17 @@
 #include "raylib.h"
 #include "Globals.h"
 
-Piece Whites[16];
-Piece Blacks[16];
+
+typedef struct mouse_position{
+    int x;
+    int y;
+}MousePosition;
+//Struct que obtenga los valores de x y y de
 
 void MainWindow();
 void DrawGraphics(Texture2D BoardPNG, Texture2D PiecesPNG, Texture2D TransparentPNG);
-void Movement(Piece *Piece_to_move, Piece *exchange, int x, int y, void*(swap)(Board, void*, void*));
+//void Movement(Piece *Piece_to_move, Coordinate *Coordinate_to_arrive, void*(swap)(Board, void*, void*));
+Coordinate* translation(Piece *p, int nx, int ny); //translates from matrix to pixels
 int isAvailable(Piece Piece_to_move);
 
 

@@ -9,11 +9,13 @@
 #define SCREENWIDTH 830
 #define SCREENHEIGHT 500
 
+Piece Whites[16];
+Piece Blacks[16];
+
 void MainWindow()
 {
     InitWindow(SCREENWIDTH, SCREENHEIGHT, "Chess Game");
     Vector2 mousePoint;
-
     Texture2D BoardPNG = LoadTexture("../Assets/board.png");
     Texture2D PiecesPNG = LoadTexture("../Assets/pieces.png");
     Texture2D TransparentPNG = LoadTexture("../Assets/transparent.png");
@@ -147,4 +149,19 @@ void DrawGraphics(Texture2D BoardPNG, Texture2D PiecesPNG, Texture2D Transparent
         DrawTextureRec(EmptyPicture.texture, EmptyPicture.source, (Vector2) {EmptyPicture.position.x + add, EmptyPicture.position.y + y + 42}, RAYWHITE);
         add = add + 42;
     }
+}
+
+//Translate from matrix to pixels
+Coordinate* translation(Piece *p, int nx, int ny)
+{
+    Coordinate *translated = calloc(1, sizeof(Coordinate));
+    translated->x = p->piece.position.x + nx*42;
+    translated->y = p->piece.position.y + ny*42;
+    p->piece.position.x = translated->x;
+    p->piece.position.y = translated->y;
+    return translated;
+};
+
+void Movement(Piece *Piece_to_move, Coordinate *Coordinate_to_arrive, void*(swap)(Board, void*, void*)){
+
 }

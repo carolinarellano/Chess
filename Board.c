@@ -14,7 +14,7 @@ Board* create_board()
                           {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                           {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                           {WPawn, WPawn, WPawn, WPawn, WPawn, WPawn, WPawn, WPawn},
-                          {WRook, WKnight, WBishop, WQueen, WKing, WBishop, WKnight, WRook}};
+                          {WRook, WKnight,WBishop,WQueen, WKing, WBishop, WKnight, WRook}};
 
     memccpy(new->tablero, tablero, 1, sizeof(Board));
     return new;
