@@ -48,7 +48,6 @@ int LoadFenString(Board board, char* fen_string) {
         }
         index++;
     }
-
     return 0;
 }
 
