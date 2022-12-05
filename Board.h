@@ -1,22 +1,32 @@
 //
-// Created by Arlyn Linette Medina García on 18/11/22.
+// Created by renis on 12/1/2022.
 //
 
-#ifndef MAIN_C_BOARD_H
-#define MAIN_C_BOARD_H
+#ifndef SUPERCOOLCHESS_BOARD_H
+#define SUPERCOOLCHESS_BOARD_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "raylib.h"
-#include "Globals.h"
+#include "Structs.h"
 
-typedef struct board
-{
-    int tablero[8][8];
-} Board;
+#define BOARD_SIDE 8
+#define EMPTY ' '
+#define WHITE_PAWN 'P'
+#define WHITE_KNIGHT 'N'
+#define WHITE_BISHOP 'B'
+#define WHITE_ROOK 'R'
+#define WHITE_QUEEN 'Q'
+#define WHITE_KING 'K'
+#define BLACK_PAWN 'p'
+#define BLACK_KNIGHT 'n'
+#define BLACK_BISHOP 'b'
+#define BLACK_ROOK 'r'
+#define BLACK_QUEEN 'q'
+#define BLACK_KING 'k'
 
-Board* create_board();
-int is_empty(Board *board);
+Board InitBoard();
+int LoadFenString(Board board, char* fen_string);
+void PrintBoardOnTerminal(Board board);
+void PrintBoard(Board board, Texture2D* textures);
+void DestroyBoard(Board board);
 
-#endif //MAIN_C_BOARD_H
+#endif //SUPERCOOLCHESS_BOARD_H

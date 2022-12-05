@@ -20,7 +20,7 @@ typedef struct mouse_position{
 void MainWindow();
 void DrawGraphics(Texture2D BoardPNG, Texture2D PiecesPNG, Texture2D TransparentPNG);
 //void Movement(Piece *Piece_to_move, Coordinate *Coordinate_to_arrive, void*(swap)(Board, void*, void*));
-Coordinate* translation(Piece *p, int nx, int ny); //translates from matrix to pixels
+void* translation(Piece *p, int nx, int ny); //translates from matrix to pixels
 int isAvailable(Piece Piece_to_move);
 
 

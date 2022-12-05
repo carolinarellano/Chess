@@ -11,6 +11,7 @@
 
 Piece Whites[16];
 Piece Blacks[16];
+Piece Pieces[32];
 
 void MainWindow()
 {
@@ -19,14 +20,16 @@ void MainWindow()
     Texture2D BoardPNG = LoadTexture("../Assets/board.png");
     Texture2D PiecesPNG = LoadTexture("../Assets/pieces.png");
     Texture2D TransparentPNG = LoadTexture("../Assets/transparent.png");
-    Texture2D YellowPNG = LoadTexture("../Assets/yellow.png");
-    Texture2D StatusPNG = LoadTexture("../Assets/status.png");
 
     while (!WindowShouldClose())
     {
         //mousePoint = GetMonitorPosition();
         BeginDrawing();
         DrawGraphics(BoardPNG, PiecesPNG, TransparentPNG);
+        //if(ActiveGame)
+        {
+            //FunctionalGame(Movimiento, bla, bla);
+        }
         EndDrawing();
     }
     CloseWindow();        // Close window and OpenGL context
@@ -37,15 +40,14 @@ void DrawGraphics(Texture2D BoardPNG, Texture2D PiecesPNG, Texture2D Transparent
     ClearBackground((Color) {57, 16, 16});
     DrawText("Chess Game",300, 20, 30, LIGHTGRAY);
     DrawTextureRec(BoardPNG, (Rectangle) {0, 0, BoardPNG.width, BoardPNG.height}, (Vector2) {0, 60},RAYWHITE);
-    //  Texture -> image   Source -> Rectangle (position x, position y, ancho, alto) Pos -> (coordenadas x, y), fondo
-    //DrawTextureRec(Pieces.texture, Pieces.source, Pieces.position, RAYWHITE);
-    //        DrawTextureRec(Pieces.texture, (Rectangle) {0, 117, 228, 112}, (Vector2) {550, 160}, RAYWHITE);
+    //DrawRectangle(132, 103, 336, 336, LIGHTGRAY); //AREA DEL TABLERO VALIDA
 
     //Definition of pieces; one by one
     //Empty, BPawn(8), BBishop(2), BKnight(2), BRook(2), BQueen(1), BKing(1),
     //       WPawn(8), WBishop(2), WKnight(2), WRook(2), WQueen(1), WKing(1);
 
     Picture Pieces = {PiecesPNG, (Rectangle){0, 117, 228, 112}, {550, 160}};
+
     Picture B_King = {PiecesPNG,  (Rectangle) {0,  133,  37,  41}, {302,104}};
     Picture B_Queen = {PiecesPNG, (Rectangle) {41, 133,  37,  41}, {264,104}};
     Picture B_Rook1 = {PiecesPNG, (Rectangle) {80, 133,  37,  41}, {136,104}};
@@ -130,7 +132,7 @@ void DrawGraphics(Texture2D BoardPNG, Texture2D PiecesPNG, Texture2D Transparent
         DrawTextureRec(Whites[i].piece.texture, Whites[i].piece.source, Whites[i].piece.position, RAYWHITE);
     }
 
-    Picture EmptyPicture = {TransparentPNG, (Rectangle) {0,  0,  42,  42}, {90, 187}};
+    /*Picture EmptyPicture = {TransparentPNG, (Rectangle) {0,  0,  42,  42}, {90, 187}};
 
     int sum = 42;
     for(int i = 0; i < 8; i++)
@@ -148,20 +150,25 @@ void DrawGraphics(Texture2D BoardPNG, Texture2D PiecesPNG, Texture2D Transparent
         DrawTextureRec(EmptyPicture.texture, EmptyPicture.source, (Vector2) {EmptyPicture.position.x + add, EmptyPicture.position.y + y}, RAYWHITE);
         DrawTextureRec(EmptyPicture.texture, EmptyPicture.source, (Vector2) {EmptyPicture.position.x + add, EmptyPicture.position.y + y + 42}, RAYWHITE);
         add = add + 42;
-    }
+    }*/
+
 }
 
 //Translate from matrix to pixels
-Coordinate* translation(Piece *p, int nx, int ny)
+void* translation(Piece *p, int nx, int ny)
 {
     Coordinate *translated = calloc(1, sizeof(Coordinate));
     translated->x = p->piece.position.x + nx*42;
     translated->y = p->piece.position.y + ny*42;
     p->piece.position.x = translated->x;
     p->piece.position.y = translated->y;
-    return translated;
+
 };
 
-void Movement(Piece *Piece_to_move, Coordinate *Coordinate_to_arrive, void*(swap)(Board, void*, void*)){
-
+void swap(Piece *p, Piece *q)
+{
+    Coordinate *temp = calloc(1, sizeof(Coordinate));
+    memcpy(temp, p->position, sizeof(Coordinate));
+    memcpy(p->position, q->position, sizeof(Coordinate));
+    memcpy(q->position, temp, sizeof(Coordinate));
 }

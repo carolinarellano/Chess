@@ -11,26 +11,20 @@ typedef struct Board board;
 
 void Process(Board board) {
     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-        int side = GetScreenHeight() / 8; //Side es el tamaño de l de cada cuadrado.
-        int start = (GetScreenWidth() - (side * 8)) / 2; //Este es para centrar el tablero en la ventana.
+        int side = 336 / 8; //Side es el tamaño de l de cada cuadrado.
+        int start = (336 - (side * 8)) / 2; //Este es para centrar el tablero en la ventana.
 
         int x_mouse_position = GetMouseX(); //Funciones de raylib lol
         int y_mouse_position = GetMouseY(); //Funciones de raylib lol
 
-        if (x_mouse_position > start && x_mouse_position < GetScreenWidth() - start) {
-            x_mouse_position -= start;
-            int x = (x_mouse_position / side);
-            int y = (y_mouse_position / side);
-        }
     }
 }
 
 int Click(){
     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
         int x_mouse_position = GetMouseX();
-        int side = GetScreenHeight() / 8; //8 porque son 8 cuadrados tanto de rows como de columns
-        int start = (GetScreenWidth() - (side * 8)) / 2;
-
+        int side = 336 / 8; //8 porque son 8 cuadrados tanto de rows como de columns
+        int start = (336 - (side * 8)) / 2;
         return (x_mouse_position > start && x_mouse_position < GetScreenWidth() - start); //Checa que el click este dentro de la ventana (que sea valido).
     }
     else{
@@ -40,8 +34,8 @@ int Click(){
 }
 
 void GetPosition(int *x, int *y){
-    int side = GetScreenHeight() / 8;
-    int start = (GetScreenWidth() - (side * 8)) / 2;
+    int side = 336 / 8;
+    int start = (336 - (side * 8)) / 2;
 
     int x_mouse_position = GetMouseX();
     int y_mouse_position = GetMouseY();

@@ -6,6 +6,7 @@
 #include "Globals.h"
 #include "Board.h"
 #include "Graphics.h"
+#include "Mouse.h"
 
 int GetPiece(int x, int y, Board *b)
 {
