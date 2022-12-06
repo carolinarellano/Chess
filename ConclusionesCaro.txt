@@ -1,0 +1,15 @@
+Ana Carolina Arellano Valdez
+
+Conclusiones
+Al realizar este proyecto por primera vez, teniamos la idea de manejar todo en un struct Board que tuviera una matriz en la que se encontraran los valores de un enum quew correspondian a cada pieza y a los vacios, de esta manera podriamos manejarlo como un arreglo de enteros, además, decidimos utilizar como base de la interfaz del proyecto pasado, sin embargo, no tomamos en cuenta que nos tomaria mas tiempo manejarlo desde esa estructura de la interfaz y la manera de conectar las funciones era mucho mas dificil, por esta razon decidimos iniciar el proyecto desde cero basandonos en uno que voimos, en el cual se utilizan estructuras autorreferenciales, lo cual nos ayudo mucho mas a poder desarrollar el tablero y poder conectar todo. 
+
+El funcionamiento de las piezas es muy sencillo, simplemente se toman las coordenadas y dependiendo del tipo de pieza es como se van a comportar o que tipo de movimientos son permitidos.
+El problema fue cuando quisimos implementar el jaque y jaque mate pero al ser tantos los movimientos posibles el programa daba error.  
+
+Además, no pudimos implementar el enroque y la promoción del peon por falta de tiempo.
+
+De ahí en más, creoq eu quedó bastante bien el  proyecto, y si los jugadores no son corruptos, se puede jugar muy bien :D
+
+
+
+un 100 no estará mal jiji

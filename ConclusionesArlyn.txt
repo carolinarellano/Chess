@@ -1,0 +1,8 @@
+Al inicio, comenzamos la implementación del proyecto basándonos en una matriz para el tablero y en structs para las piezas, pero como no lográbamos que nos saliera buscamos otros ejemplos de cómo lo podríamos hacer. Hasta el final, después de ver un proyecto, decidimos hacerlo con estructuras referenciales para el tablero y para diferenciar las piezas de cada jugador, unas las definimos con mayúsculas y las otras con minúsculas. Para las blancas P,N,B,R,Q,K y para las negras p,n,b,r,q,k.
+
+Con base en estas estructuras referenciales llegamos a validar y manipular los diferentes movimientos que cada pieza podía hacer conforme las reglas del juego. En sí, estas funciones se manipulaban de una manera muy similar a una matriz, ya que estaban basados en un struct con 'x' y 'y'. 
+
+El cómo funciona en general el juego es de la siguiente forma: Cada vez que el usuario decida guardar el juego (con la tecla s), se cerrara el programa y la siguiente vez que se abra, se abrirá en el juego guardado. De otra forma si se hace un empate o simplemente se cierra el juego, se cerrara el juego y ala hora de volver a abrirlo empezara con una partida nueva.
+
+Llegamos a hacer la base del juego en donde las piezas  realizan los movimientos correctos, pero sí nos faltaron varios detalles como el Check/CheckMate y la promoción de los peones. Sobre el Check logramos hacer una implementación que en sí no funcionaba en todos los casos, pero como tenía muchos bugs, decidimos quitarla. 
+
