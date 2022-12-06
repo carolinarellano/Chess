@@ -22,6 +22,5 @@
 
 Texture2D* LoadAssets(int);
 void DestroyAssets(Texture2D*);
-Texture2D* LoadWin();
 
 #endif //SUPERCOOLCHESS_ASSETS_H

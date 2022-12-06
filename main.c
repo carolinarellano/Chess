@@ -25,8 +25,13 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    LoadFenString(board, "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-    PrintBoardOnTerminal(board);
+    //char* new_game = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+
+    //Carga el juego guardado en el archivo de texto (nuevo o guardado anteriormente)
+    char* game = LoadGame();
+    LoadFenString(board, game);
+
+    //Siempre empieza con las blancas
     char current_player = 'w';
     Move* possible_moves = NULL;
     int number_of_moves = 0;
@@ -43,7 +48,9 @@ int main(int argc, char** argv) {
         DrawText("Draw?", 760, 315, 13, BLACK);
         DrawText("Press D", 750, 330, 13, DARKBLUE);
 
+        //Mientras no se haya activado la bandera de draw, se puede jugar
         if(can_play){
+            //Al momento de dar click en el tablero, se obtiene la posicion del click para mostrar los movimientos posibles de la pieza seleccionada
             if (PlayerClickedOnBoard()) {
                 int row, col;
                 GetBoardPosition(&row, &col);
@@ -73,6 +80,7 @@ int main(int argc, char** argv) {
                     selected_col = -1;
                     MemFree(possible_moves);
                     number_of_moves = 0;
+                    //cambia de jugador
                     current_player = (current_player == 'w') ? 'b' : 'w';
                 }
             }
@@ -91,24 +99,28 @@ int main(int argc, char** argv) {
             }
         }
 
+        //Para guardar el juego, se presiona S y se escribe en el archivo de texto la partida actual
         if(IsKeyPressed(KEY_S))
             SaveGame(board);
+        //Al presionar D, se declara empate y ya no se pueden mover las piezas, el juego se reinicia
         if(IsKeyReleased(KEY_D)){
             draw_active = 1;
             can_play = 0;
         }
+
         Draw(draw_active);
         EndDrawing();
     }
 
     DestroyBoard(board);
     DestroyAssets(textures);
+    SaveGame(board);
     CloseWindow();
     return 0;
 }
 
+/*LO QUE FALTA:
 //Enroque
 //Promocion peones
 //Jaque - Jaque Mate
-//Leer archivo de texto -> Cargar partida
-
+*/

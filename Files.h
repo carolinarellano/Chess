@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void SaveGame(Board b);
-Board LoadGame();
+int SaveGame(Board b);
+char* LoadGame();
 
 #endif //SUPERCOOLCHESS_FILES_H

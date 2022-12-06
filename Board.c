@@ -1,13 +1,14 @@
 //
 // Created by renis on 12/1/2022.
 //
-#include "Files.h"
+
 #include "Board.h"
 #include "raylib.h"
 #include "stdlib.h"
 #include "stdio.h"
 
 Board InitBoard() {
+    //Se inicializa el board con malloc
     char** new_board = (char**)malloc(sizeof(char*) * 8);
     if (new_board == NULL) {
         return NULL;
@@ -21,6 +22,7 @@ Board InitBoard() {
     return new_board;
 }
 
+//Carga el FENString y lo interpreta para acomodar las piezas
 int LoadFenString(Board board, char* fen_string) {
     int index = 0; //Lee el string que contiene las posiciones del tablero
     int row = 0;
@@ -51,15 +53,7 @@ int LoadFenString(Board board, char* fen_string) {
     return 0;
 }
 
-void PrintBoardOnTerminal(Board board) {
-    for (int row = 0; row < 8; row++) {
-        for (int col = 0; col < 8; col++) {
-            printf(" %c ", *(*(board + row) + col));
-        }
-        printf("\n");
-    }
-}
-
+//Despues de asignar con la FEN String los lugares, comienza a dibujar el board junto con las piezas
 void PrintBoard(Board board, Texture2D* textures) {
     int step = GetScreenHeight() / BOARD_SIDE;
     int start = (GetScreenWidth() - (step * 8)) / 2; //Se centra el tablero
@@ -118,6 +112,7 @@ void PrintBoard(Board board, Texture2D* textures) {
 
 }
 
+//Destruye el board
 void DestroyBoard(Board board) {
     for (int i = 0; i < BOARD_SIDE; i++) {
         free(*(board + i));

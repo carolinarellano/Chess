@@ -5,8 +5,9 @@
 #include "Events.h"
 #include "raylib.h"
 #include "Board.h"
-#include "stdio.h"
 
+
+//Obtiene la posicion del click dentro del board, si esta fuera del board, no lo detecta
 bool PlayerClickedOnBoard() {
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
         int mouse_x_pos = GetMouseX();
@@ -19,6 +20,7 @@ bool PlayerClickedOnBoard() {
     }
 }
 
+//Obtiene las posiciones del board para comprobar que se este haciendo el click dentro
 void GetBoardPosition(int* row, int* col) {
     int step = GetScreenHeight() / BOARD_SIDE;
     int start = (GetScreenWidth() - (step * 8)) / 2;

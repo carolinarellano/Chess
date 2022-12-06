@@ -3,7 +3,7 @@ project(SuperCoolChess C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(SuperCoolChess main.c Structs.h Movements.c Movements.h Files.c Files.h Board.c Board.h Events.c Events.h Assets.c Assets.h)
+add_executable(SuperCoolChess main.c Structs.h Movements.c Movements.h Files.c Files.h Board.c Board.h Events.c Events.h Assets.c Assets.h Check.c Check.h)
 
 # Dependencies
 find_package(raylib 4.0.0 QUIET) # QUIET or REQUIRED

@@ -12,15 +12,4 @@ typedef struct move{
     int y;
 }Move;
 
-typedef struct button_struct {
-    Vector2 position;
-    Rectangle mask;
-    Rectangle collision;
-    int status; // 1 if pressed, 0 if not
-} Button;
-
-
-
-
-
 #endif //SUPERCOOLCHESS_STRUCTS_H

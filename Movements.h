@@ -14,9 +14,8 @@
 #include "Movements.h"
 
 Board GamePlay(Board board, Texture2D* textures, int step);
-int CheckMateBlack(Board b);
-int CheckMateWhite(Board b);
-void Win(char* Winner);
+int WhiteWins(Board b);
+int BlackWins(Board b);
 int Draw(int draw_active);
 Move* GenerateMoves(Move start, Board board, int* nm);
 int CheckMove(Move* moves, int nm, Move move);

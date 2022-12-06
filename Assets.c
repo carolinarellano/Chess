@@ -5,6 +5,7 @@
 #include "Assets.h"
 #include "stdio.h"
 
+
 Texture2D* LoadAssets(int desired_side_len) {
     desired_side_len -= 20; //Resize de las piezas
 
@@ -12,6 +13,7 @@ Texture2D* LoadAssets(int desired_side_len) {
     Texture2D* loaded_textures = (Texture2D*)MemAlloc(sizeof(Texture2D) * 12);
     if (loaded_textures == NULL) { return NULL; }
 
+    //Se cargan las imagenes a partir de las direcciones de estas (definidas en el .h)
     Image black_bishop_image = LoadImage(BLACK_BISHOP_IMAGE_PATH);
     ImageResize(&black_bishop_image, desired_side_len, desired_side_len);
     *(loaded_textures + 0) = LoadTextureFromImage(black_bishop_image);
@@ -76,11 +78,7 @@ Texture2D* LoadAssets(int desired_side_len) {
     return loaded_textures;
 }
 
+//Se destruyen los assets
 void DestroyAssets(Texture2D* textures) {
     MemFree(textures);
 }
-
-Texture2D* LoadWin()
-{
-
-};

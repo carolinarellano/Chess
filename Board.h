@@ -25,7 +25,6 @@
 
 Board InitBoard();
 int LoadFenString(Board board, char* fen_string);
-void PrintBoardOnTerminal(Board board);
 void PrintBoard(Board board, Texture2D* textures);
 void DestroyBoard(Board board);
 
